@@ -193,6 +193,40 @@ p  { margin: 0 0 1rem; }
   background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
+/* ---- Video hero (home) — self-hosted background clip with legibility overlay ---- */
+.hero--video {
+  background: var(--ink) url("/media/hero-poster.jpg") center / cover no-repeat;
+  color: #fff;
+  isolation: isolate;
+}
+.hero-video {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  pointer-events: none;
+}
+.hero--video::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(15,32,51,.55) 0%, rgba(15,32,51,.66) 65%, rgba(15,32,51,.82) 100%),
+    radial-gradient(900px 520px at 12% 8%, rgba(232,85,43,.20), transparent 60%);
+}
+.hero--video .hero-inner { position: relative; z-index: 2; }
+.hero--video h1 { color: #fff; }
+.hero--video .eyebrow { color: var(--accent-br); }
+.hero--video .hero-sub { color: #eaf0f5; }
+.hero--video .hero-lead { color: #d3deea; }
+.hero--video .hero-lead em { color: #fff; font-style: normal; font-weight: 700; }
+.hero--video .hero-note { color: #fff; }
+.hero--video .btn-ghost {
+  color: #fff; border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.05);
+}
+.hero--video .btn-ghost:hover {
+  color: #fff; border-color: #fff; background: rgba(255,255,255,.15);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }   /* poster (hero background) shows instead of motion */
+}
+
 /* ============================================================
    Positioning strip (differentiators)
    ============================================================ */

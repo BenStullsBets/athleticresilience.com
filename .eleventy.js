@@ -1,7 +1,7 @@
 module.exports = function (eleventyConfig) {
   // The whole site is static HTML/CSS/JS — copy it verbatim into _site/.
   const passthrough = [
-    "styles.css", "script.js", "fonts", "images",
+    "styles.css", "script.js", "fonts", "images", "media",
     "index.html", "about", "store", "blog", "404.html",
     "_headers", "robots.txt", "sitemap.xml", "llms.txt", "site.webmanifest",
     "favicon.svg",
