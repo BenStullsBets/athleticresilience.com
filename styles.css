@@ -195,7 +195,7 @@ p  { margin: 0 0 1rem; }
 
 /* ---- Video hero (home) — self-hosted background clip with legibility overlay ---- */
 .hero--video {
-  background: var(--ink) url("/media/hero-poster.jpg") center / cover no-repeat;
+  background: var(--ink) url("/media/hero-poster.jpg?v=2") center / cover no-repeat;
   color: #fff;
   isolation: isolate;
 }
