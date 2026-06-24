@@ -1,0 +1,19 @@
+# Editor / OS cruft
+.DS_Store
+*.swp
+*~
+
+# Claude Code preview helper (local only)
+.claude/
+
+# Dependencies
+node_modules/
+
+# Eleventy build output
+_site/
+_site-preview/
+
+# Secrets — never commit
+*.pem
+*.key
+*.csr
