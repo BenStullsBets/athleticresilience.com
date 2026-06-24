@@ -7,9 +7,15 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; frame-src https://challenges.cloudflare.com; form-action 'self' https://api.web3forms.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; connect-src 'self' https://cloudflareinsights.com https://api.web3forms.com https://challenges.cloudflare.com; upgrade-insecure-requests
 
-# CSS/JS filenames are not fingerprinted and change often during iteration, so
-# revalidate them on every load (cheap 304s) — otherwise an immutable cache would
-# keep serving a stale stylesheet after a deploy.
+# Fingerprinted CSS/JS (styles.<hash>.css, script.<hash>.js) — content-hashed at
+# build time, so the URL changes whenever the content does. Safe to cache forever.
+/styles.*.css
+  Cache-Control: public, max-age=31536000, immutable
+/script.*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Unversioned fallbacks (local dev, or a build that skips fingerprinting) — revalidate
+# so a stale stylesheet is never served after a deploy.
 /styles.css
   Cache-Control: public, max-age=0, must-revalidate
 /script.js

@@ -4,7 +4,7 @@
   "private": true,
   "description": "athleticresilience.com — static marketing site (Eleventy)",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy && node scripts/fingerprint.js",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
